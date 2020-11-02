@@ -1,0 +1,163 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const float DISCOUNT10 = 0.10;
+const float DISCOUNT20 = 0.20;
+const float DISCOUNT30 = 0.30;
+const float DISCOUNT5 = 0.05;
+
+
+
+
+int main() {
+    // variables for program
+    float roomCost;
+    int roomsBooked;
+    int daysBooked;
+    float salesTax;
+
+
+    //sets precision of decimal places
+    cout << fixed << showpoint << setprecision(2);
+
+    //prompts user to enter cost of room
+    cout << "Enter the cost of renting one room: ";
+    cin >> roomCost;
+    cout << endl;
+
+    //prompts user to enter number of rooms booked
+    cout << "Enter number of rooms booked: ";
+    cin >> roomsBooked;
+    cout << endl;
+
+    //prompts user to enter number of days the rooms are booked for
+    cout << "Enter the number of days the rooms are booked for: ";
+    cin >> daysBooked;
+    cout << endl;
+
+    //prompts user to enter sales tax as percentage
+    cout << "Enter sales tax: ";
+    cin >> salesTax;
+    cout << endl;
+
+    //outputs cost of renting one room
+    cout << "The cost of renting one room is $" << roomCost << endl;
+
+    //noutputs number of rooms booked
+    cout << "Number of rooms booked: " << roomsBooked << endl;
+
+    //outputs number of days booked
+    cout << "Days booked: " << daysBooked << endl;
+
+    //variables for discounts with and without the extra 5%
+    //this formats it to a percentage like the assigment asks
+    float discount1 = (DISCOUNT10 + DISCOUNT5) * 100;
+    float discount_1 = DISCOUNT10 * 100;
+
+    float discount2 = (DISCOUNT20 + DISCOUNT5) * 100;
+    float discount_2 = DISCOUNT20 * 100;
+
+    float discount3 = (DISCOUNT30 + DISCOUNT5) * 100;
+    float discount_3 = DISCOUNT30 * 100;
+
+    //cost of rooms without discounts applied
+    float room1 = roomCost * daysBooked * roomsBooked;
+    float room2 = roomCost * daysBooked * roomsBooked;
+    float room3 = roomCost * daysBooked * roomsBooked;
+    float room4 = roomCost * daysBooked * roomsBooked;
+
+    //total cost of rooms with and without extra discount
+    float totalCost1 = (room1 - ((DISCOUNT10 + DISCOUNT5)) * room1);
+    float totalCost_1 = room1 -(DISCOUNT10 * room1);
+
+    float totalCost2 = room2 - ((DISCOUNT20 + DISCOUNT5) * room2);
+    float totalCost_2 = room2 -(DISCOUNT20 * room2);
+
+    float totalCost3 = room3 - ((DISCOUNT30 + DISCOUNT5) * room3);
+    float totalCost_3 = room3 - (DISCOUNT30 * room3);
+
+    //sales taxes from each cost of room
+    float tax1 = (salesTax / 100) * totalCost1;
+    float tax_1 = (salesTax / 100) * totalCost1;
+
+    float tax2 = (salesTax / 100) * totalCost2;
+    float tax_2 = (salesTax / 100) * totalCost_2;
+
+    float tax3 = (salesTax / 100) * totalCost3;
+    float tax_3 = (salesTax / 100) * totalCost_3;
+
+    float tax4 = (salesTax / 100) * room4;
+
+
+    
+
+
+
+
+  //total cost of rooms PLUS sales tax
+  float grandTotal1 = ((salesTax / 100) * totalCost1) + totalCost1;
+  float grandTotal_1 = ((salesTax / 100) * totalCost_1) + totalCost_1;
+
+  float grandTotal2 = ((salesTax / 100) * totalCost2) + totalCost2;
+  float grandTotal_2 = ((salesTax / 100) * totalCost_2) + totalCost_2;
+
+  float grandTotal3 = ((salesTax / 100) * totalCost3) + totalCost3;
+  float grandTotal_3 = ((salesTax / 100) * totalCost_3) + totalCost_3;
+    
+
+     cout << fixed << showpoint << setprecision(2);
+if(roomsBooked >= 10 && roomsBooked < 20)
+    if(daysBooked >= 3)
+      cout << "The discount is " << discount1
+           << " The total cost is $" << totalCost1 << endl
+           << "Sales tax is " << tax1 << "%" << endl
+           << "Total billing amount is $" << grandTotal1 << endl;
+    else
+      cout << "The discount is " << discount_1 << endl
+      << "The total cost is $" << totalCost_1 << endl
+      << "Sales tax is " << tax_1 << "%" << endl
+      << "Total billing amount $" << grandTotal_1 << endl;
+else if(roomsBooked >= 20 && roomsBooked < 30)
+        if(daysBooked >= 3)
+          cout << "The discount is " << discount2
+           << " The total cost is $" << totalCost2 << endl
+           << "Sales tax is " << tax2 << "%" << endl
+           << "Total billing amount is $" << grandTotal2 << endl;
+           else
+            cout << "The discount is " << discount_2 << endl
+                  << "The total cost is $" << totalCost_2 << endl
+                  << "Sales tax is " << tax_2 << "%" << endl
+                  << "Total billing amount $" << grandTotal_2 << endl;
+else if(roomsBooked >= 30)
+        if(daysBooked >=3)
+          cout << "The discount is " << discount3
+           << " The total cost is $" << totalCost3 << endl
+           << "Sales tax is " << tax3 << "%" << endl
+           << "Total billing amount is $" << grandTotal3 << endl;
+          else
+            cout << "The discount is " << discount_3
+           << " The total cost is $" << totalCost_3 << endl
+           << "Sales tax is " << tax_3 << "%" << endl
+           << "Total billing amount is $" << grandTotal_3 << endl;
+else
+  
+  cout << "discount is 0.0% "
+       << "Room cost: $" << room4
+       << "Sales tax: " << tax4
+       << "Total billing amount: $" << room4 + tax4;
+
+    
+
+
+
+
+
+
+
+
+
+
+return 0;
+}
