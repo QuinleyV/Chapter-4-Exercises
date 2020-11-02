@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    float num;
+
+    cout << "Input a number: ";
+    cin >> num;
+
+    if(num < 0)
+      cout << "The number you have entered is negative";
+    else if(num > 0)
+      cout << "The number you entered is positive";
+    else
+      cout << "The number you entered is zero";
+}
